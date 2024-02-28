@@ -7,8 +7,15 @@ use Illuminate\View\View;
 
 class WelcomeControl extends Controller
 {
-    function hello(): View
+    function hello(Request $req)
     {
-        return view('hello');
+        return ('Hello World');
+    }
+
+    public function greeting()
+    {
+        return view('blog.hello')
+            ->with('name', 'Andi')
+            ->with('occupation', 'Astronaut');
     }
 }

@@ -19,9 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function () {
-    return 'Hello World';
-});
+Route::get('/greeting', [WelcomeControl::class, 'greeting']);
 
 Route::get('mahasiswa', function ($id) {
 });
