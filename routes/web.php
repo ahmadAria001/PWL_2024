@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\WelcomeControl;
 use Illuminate\Support\Facades\Route;
 
@@ -49,3 +50,10 @@ Route::get('/world', function () {
 Route::get('/user/{name}', function ($name) {
     return 'Nama saya ' . $name;
 });
+
+
+Route::resource('photos', PhotoController::class)->only([
+    'index', 'show'
+]);
+
+Route::resource('photos', PhotoController::class)->except(['create', 'store', 'update', 'destroy']);
